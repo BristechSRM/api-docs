@@ -2,8 +2,8 @@
     "list_url": [
         {
             "docs": "http://api.bris.tech/docs",
-            "base_path": "",
-            "route_match": []
+            "base_path": "http://api.bris.tech",
+            "route_match": ["/speakers"]
         }
    ],
     "info": { "title": "Bristech SRM", "version": "1.0" },
