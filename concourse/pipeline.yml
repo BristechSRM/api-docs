@@ -1,0 +1,49 @@
+resource_types:
+  - name: ecs
+    type: docker-image
+    source:
+      repository: bristechsrm/notify_ecs
+jobs:
+- name: build
+  public: true
+  serial: true
+  plan:
+  - aggregate:
+    - get: speakers-trigger
+      trigger: true
+    - get: code
+      trigger: true
+  - put: image
+    params:
+      build: code
+  - put: cluster
+
+resources:
+- name: code
+  type: git
+  source:
+    uri: https://github.com/BristechSRM/api-docs.git
+
+- name: speakers-trigger
+  type: git
+  source:
+    uri: https://github.com/BristechSRM/speakers.git
+    paths: Speakers/api.json
+
+- name: image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: bristechsrm
+    password: {{docker-hub-password}}
+    repository: bristechsrm/api_docs
+
+- name: cluster
+  type: ecs
+  source:
+    stackName: development
+    clusterName: speakersCluster
+    taskName: swaggerTaskDefinition
+    serviceName: swaggerService
+    accessKeyId: {{awsAccessKeyId}}
+    secretAccessKey: {{awsSecretAccessKey}}
