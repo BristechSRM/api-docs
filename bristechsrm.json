@@ -4,13 +4,8 @@
             "docs": "http://api.bris.tech/docs",
             "base_path": "",
             "route_match": []
-        },
-        {
-            "docs": "http://api.bris.tech:8080/docs",
-            "base_path": "",
-            "route_match": []
         }
-    ],
+   ],
     "info": { "title": "Bristech SRM", "version": "1.0" },
     "port": 9000
 }
