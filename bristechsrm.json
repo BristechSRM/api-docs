@@ -3,7 +3,7 @@
         {
             "docs": "http://api.bris.tech/docs",
             "base_path": "http://api.bris.tech",
-            "route_match": ["/speakers"]
+            "route_match": ["/TalkOutlines"]
         }
    ],
     "info": { "title": "Bristech SRM", "version": "1.0" },
