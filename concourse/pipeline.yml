@@ -9,7 +9,7 @@ jobs:
   serial: true
   plan:
   - aggregate:
-    - get: speakers-trigger
+    - get: sessions-trigger
       trigger: true
     - get: code
       trigger: true
@@ -24,11 +24,11 @@ resources:
   source:
     uri: https://github.com/BristechSRM/api-docs.git
 
-- name: speakers-trigger
+- name: sessions-trigger
   type: git
   source:
-    uri: https://github.com/BristechSRM/speakers.git
-    paths: Speakers/api.json
+    uri: https://github.com/BristechSRM/sessions.git
+    paths: Sessions/api.json
 
 - name: image
   type: docker-image
