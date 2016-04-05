@@ -42,7 +42,7 @@ resources:
   type: ecs
   source:
     stackName: development
-    clusterName: speakersCluster
+    clusterName: apiCluster
     taskName: swaggerTaskDefinition
     serviceName: swaggerService
     accessKeyId: {{awsAccessKeyId}}
