@@ -1,21 +1,21 @@
 {
     "list_url": [
         {
-            "docs": "http://api.bris.tech/docs",
+            "docs": "http://sessions:8080/docs",
             "base_path": "",
             "route_match": []
         },
         {
-            "docs": "http://api.bris.tech:8080/docs",
+            "docs": "http://comms:8080/docs",
             "base_path": "",
             "route_match": []
         },
         {
-            "docs": "http://api.bris.tech:8082/docs",
+            "docs": "http://api-gateway:8080/docs",
             "base_path": "",
             "route_match": []
         }
     ],
     "info": { "title": "Bristech SRM", "version": "1.0" },
-    "port": 9000
+    "port": 8080
 }
