@@ -1,8 +1,8 @@
 resource_types:
-  - name: ecs
+  - name: docker-swarm-deploy 
     type: docker-image
     source:
-      repository: bristechsrm/notify_ecs
+      repository: bristechsrm/docker-swarm-deploy
 jobs:
 - name: build
   public: true
@@ -16,7 +16,7 @@ jobs:
   - put: image
     params:
       build: code
-  - put: cluster
+  - put: swarm
 
 resources:
 - name: code
@@ -38,12 +38,11 @@ resources:
     password: {{docker-hub-password}}
     repository: bristechsrm/api_docs
 
-- name: cluster
-  type: ecs
+- name: swarm
+  type: docker-swarm-deploy
   source:
-    stackName: development
-    clusterName: apiCluster
-    taskName: swaggerTaskDefinition
-    serviceName: swaggerService
-    accessKeyId: {{awsAccessKeyId}}
-    secretAccessKey: {{awsSecretAccessKey}}
+    serviceName: api-docs
+    nodeName: api-docs
+    repository: bristechsrm/api_docs
+    swarmMasterIp: {{swarmMasterIp}}
+    overlay: overlay
